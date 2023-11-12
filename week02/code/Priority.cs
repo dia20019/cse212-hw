@@ -21,8 +21,10 @@ public static class Priority {
         // Scenario: 
         // Expected Result: 
         Console.WriteLine("Test 1");
+        var priorityQueue = new PriorityQueue();
+        priorityQueue.Dequeue();
 
-        // Defect(s) Found: 
+        // Defect(s) Found: None
 
         Console.WriteLine("---------");
 
@@ -30,8 +32,20 @@ public static class Priority {
         // Scenario: 
         // Expected Result: 
         Console.WriteLine("Test 2");
+        priorityQueue = new PriorityQueue();
+        priorityQueue.Enqueue("Isaac", 3);
+        priorityQueue.Enqueue("Cass", 5);
+        priorityQueue.Enqueue("Roy", 7);
 
-        // Defect(s) Found: 
+        for (int i = 0; i < 10; i++)
+        {
+            var person = priorityQueue.Dequeue();
+            if (person == null)
+                break;
+            Console.WriteLine(person);
+        }
+
+        // Defect(s) Found: The Dequeue Method is not really removing the person
 
         Console.WriteLine("---------");
 

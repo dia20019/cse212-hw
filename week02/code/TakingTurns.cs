@@ -23,9 +23,10 @@ public static class TakingTurns {
         players.AddPerson("Tim", 5);
         players.AddPerson("Sue", 3);
         // Console.WriteLine(players);    // This can be un-commented out for debug help
-        while (players.Length > 0)
+        while (players.Length > 0){
             players.GetNextPerson();
-        // Defect(s) Found: 
+        }
+        // Defect(s) Found: the dequeue for PersonQueue class is removing the last person in the queue when it should be the first one.
 
         Console.WriteLine("---------");
 
@@ -45,10 +46,10 @@ public static class TakingTurns {
 
         players.AddPerson("George", 3);
         // Console.WriteLine(players);
-        while (players.Length > 0)
+        while (players.Length > 0){
             players.GetNextPerson();
-
-        // Defect(s) Found: 
+        }
+        // Defect(s) Found: None
 
         Console.WriteLine("---------");
 
@@ -66,7 +67,7 @@ public static class TakingTurns {
             players.GetNextPerson();
             // Console.WriteLine(players);
         }
-        // Defect(s) Found: 
+        // Defect(s) Found: GetNextPerson method in TakingTurnsQueue is removing people from the queue even when some should repeat an infinite number of times.
 
         Console.WriteLine("---------");
 
@@ -76,6 +77,6 @@ public static class TakingTurns {
         Console.WriteLine("Test 4");
         players = new TakingTurnsQueue();
         players.GetNextPerson();
-        // Defect(s) Found:
+        // Defect(s) Found: None
     }
 }
