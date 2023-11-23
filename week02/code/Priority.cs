@@ -21,7 +21,6 @@ public static class Priority {
         // Scenario: 
         // Expected Result: 
         Console.WriteLine("Test 1");
-        var priorityQueue = new PriorityQueue();
         priorityQueue.Dequeue();
 
         // Defect(s) Found: None
@@ -33,9 +32,9 @@ public static class Priority {
         // Expected Result: 
         Console.WriteLine("Test 2");
         priorityQueue = new PriorityQueue();
-        priorityQueue.Enqueue("Isaac", 3);
-        priorityQueue.Enqueue("Cass", 5);
-        priorityQueue.Enqueue("Roy", 7);
+        priorityQueue.Enqueue("Bob", 2);
+        priorityQueue.Enqueue("Tim", 5);
+        priorityQueue.Enqueue("Sue", 3);
 
         for (int i = 0; i < 10; i++)
         {
@@ -50,5 +49,7 @@ public static class Priority {
         Console.WriteLine("---------");
 
         // Add more Test Cases As Needed Below
+        // Test 3
     }
 }
+    
