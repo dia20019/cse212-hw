@@ -1,8 +1,10 @@
-public static class TreesTester {
+public static class TreesTester
+{
     /// <summary>
     /// Entry point for the Prove 9 tests
     /// </summary>
-    public static void Run() {
+    public static void Run()
+    {
         // Sample Test Cases (may not be comprehensive)
         Console.WriteLine("\n=========== PROBLEM 1 TESTS ===========");
         BinarySearchTree tree = new BinarySearchTree();
@@ -11,7 +13,6 @@ public static class TreesTester {
         tree.Insert(7);
         // After implementing 'no duplicates' rule,
         // this next insert will have no effect on the tree.
-        // TODO Problem 1
         tree.Insert(7);
         tree.Insert(4);
         tree.Insert(10);
@@ -27,7 +28,8 @@ public static class TreesTester {
         Console.WriteLine(tree.Contains(9)); // False
 
         Console.WriteLine("\n=========== PROBLEM 3 TESTS ===========");
-        foreach (var value in tree.Reverse()) {
+        foreach (var value in tree.Reverse())
+        {
             Console.WriteLine(value); // 10, 7, 6, 5, 4, 3, 1
         }
 
@@ -50,7 +52,6 @@ public static class TreesTester {
         Console.WriteLine(tree4.GetHeight()); // 1
         Console.WriteLine(tree5.GetHeight()); // 0
     }
-
     /// <summary>
     /// Given a sorted list (sorted_list), create a balanced BST.  If the values in the
     /// sortedNumbers were inserted in order from left to right into the BST, then it
@@ -60,12 +61,12 @@ public static class TreesTester {
     /// a range (first to last) to consider.  For the first call, the full range of 0 to
     /// Length-1 used.
     /// </summary>
-    private static BinarySearchTree CreateTreeFromSortedList(int[] sortedNumbers) {
+    private static BinarySearchTree CreateTreeFromSortedList(int[] sortedNumbers)
+    {
         var bst = new BinarySearchTree(); // Create an empty BST to start with 
         InsertMiddle(sortedNumbers, 0, sortedNumbers.Length - 1, bst);
         return bst;
     }
-
     /// <summary>
     /// This function will attempt to insert the item in the middle of 'sortedNumbers' into
     /// the 'bst' tree. The middle is determined by using indices represented by 'first' and
@@ -79,7 +80,6 @@ public static class TreesTester {
     /// then the value 30 (index 2 which is the middle) would be added 
     /// to the 'bst' (the insert function in the <see cref="BinarySearchTree"/> can be used
     /// to do this).   
-    ///
     /// Subsequent recursive calls are made to insert the middle from the values 
     /// before 30 and the values after 30.  If done correctly, the order
     /// in which values are added (which results in a balanced bst) will be:
@@ -87,7 +87,6 @@ public static class TreesTester {
     /// 30, 10, 20, 50, 40, 60
     /// </code>
     /// This function is intended to be called the first time by CreateTreeFromSortedList.
-    ///
     /// The purpose for having the first and last parameters is so that we do 
     /// not need to create new sub-lists when we make recursive calls.  Avoid 
     /// using list slicing to create sub-lists to solve this problem.    
@@ -96,7 +95,15 @@ public static class TreesTester {
     /// <param name="first">the first index in the sortedNumbers to insert</param>
     /// <param name="last">the last index in the sortedNumbers to insert</param>
     /// <param name="bst">the BinarySearchTree in which to insert the values</param>
-    private static void InsertMiddle(int[] sortedNumbers, int first, int last, BinarySearchTree bst) {
-        // TODO Start Problem 5
+    private static void InsertMiddle(int[] sortedNumbers, int first, int last, BinarySearchTree bst)
+    {
+        if (first > last)
+        {
+            return;
+        }
+        int middle = (first + last) / 2;
+        bst.Insert(sortedNumbers[middle]);
+        InsertMiddle(sortedNumbers, first, middle - 1, bst);
+        InsertMiddle(sortedNumbers, middle + 1, last, bst);
     }
 }
